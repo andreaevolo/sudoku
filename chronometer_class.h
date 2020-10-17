@@ -4,15 +4,14 @@
 #include <chrono>
 #include <iostream>
 class Chronometer {
-  std::chrono::time_point<std::chrono::steady_clock> start;
-  std::chrono::time_point<std::chrono::steady_clock> end;
+  std::chrono::time_point<std::chrono::steady_clock> start_;
+  std::chrono::time_point<std::chrono::steady_clock> end_;
   public:
   Chronometer() {}
 
   void startTimer();
   void stopTimer();
-  
-  void printTime();
+  void printTimeElapsed();
 };
 
 #endif
