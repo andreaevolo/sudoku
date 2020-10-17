@@ -1,9 +1,9 @@
-#include "game_class.h"
+#include "sudoku_class.h"
 #include <iostream>
 
 // private methods
 
-void Game::fillSudokuTable() {
+void Sudoku::fillSudokuTable() {
         for(int i = 0; i < 9;i++) {
             for(int j = 0; j < 9;j++) {
                 sudoku_table_[i][j] = 0;
@@ -11,14 +11,14 @@ void Game::fillSudokuTable() {
         } 
 }
 
-bool Game::init() {
+bool Sudoku::init() {
     return game_running_;
 }
-void Game::end() {
+void Sudoku::end() {
     game_running_ = false;
 }
 
-void Game::printTable() {
+void Sudoku::printTable() {
     for(int i = 0; i < 9;i++) {
         
         for(int j = 0; j < 9;j++) {
@@ -33,7 +33,7 @@ void Game::printTable() {
     }
 };
 
-bool Game::checkColumn(short int y, short int input_value) {
+bool Sudoku::checkColumn(short int y, short int input_value) {
     bool isValid = true;
     for(int i = 0; i < 9;i++) {
         if(sudoku_table_[i][y] == input_value) isValid = false;
@@ -41,7 +41,7 @@ bool Game::checkColumn(short int y, short int input_value) {
     return isValid;
 }
 
-bool Game::checkRow(short int x, short int input_value) {
+bool Sudoku::checkRow(short int x, short int input_value) {
     bool isValid = true;
     for(int i = 0; i < 9;i++) {
         if(sudoku_table_[x][i] == input_value) isValid = false;
@@ -49,18 +49,18 @@ bool Game::checkRow(short int x, short int input_value) {
     return isValid;
 }
 
- bool Game::checkGrid(short int x, short int y) {
+ bool Sudoku::checkGrid(short int x, short int y) {
 
  };
 
-void Game::askUserInput() {
+void Sudoku::askUserInput() {
    
    short int val = inputCellValue();
    Coordinates user_coordinates = inputCoordinates();
     
 }
 
- short int Game::inputCellValue() {
+ short int Sudoku::inputCellValue() {
     std::cout<<"Enter a number from 1 to 9"<<std::endl;
     short int value;
     std::cin>>value;
@@ -77,7 +77,7 @@ void Game::askUserInput() {
     return value;
  };
 
- Coordinates Game::inputCoordinates() {
+ Coordinates Sudoku::inputCoordinates() {
     std::cout<<"Enter X (row) and Y (Column) coordinates where you would like to place your number "<<std::endl;
     short int row,column;
     std::cin>>row>>column;

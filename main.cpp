@@ -1,7 +1,7 @@
-#include "game_class.h"
+#include "sudoku_class.h"
 
 int main() {
-    Game match;
+    Sudoku match;
     match.fillSudokuTable();
     while(match.init()) {
         match.printTable();

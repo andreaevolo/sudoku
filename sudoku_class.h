@@ -4,7 +4,7 @@
 #include "chronometer_class.h"
 #include "coordinates_struct.h"
 
-class Game {
+class Sudoku {
     bool game_running_ = true;
     int sudoku_table_[9][9];
     int player_moves_count_ = 0;
@@ -21,7 +21,7 @@ class Game {
     Coordinates inputCoordinates();
     void askUserInput();
     public:
-    Game(){}
+    Sudoku(){}
    
     bool init();
     void fillSudokuTable();
