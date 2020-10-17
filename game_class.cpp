@@ -33,11 +33,30 @@ void Game::printTable() {
     }
 };
 
+bool Game::checkColumn(short int y, short int input_value) {
+    bool isValid = true;
+    for(int i = 0; i < 9;i++) {
+        if(sudoku_table_[i][y] == input_value) isValid = false;
+    }
+    return isValid;
+}
+
+bool Game::checkRow(short int x, short int input_value) {
+    bool isValid = true;
+    for(int i = 0; i < 9;i++) {
+        if(sudoku_table_[x][i] == input_value) isValid = false;
+    }
+    return isValid;
+}
+
+ bool Game::checkGrid(short int x, short int y) {
+
+ };
+
 void Game::askUserInput() {
    
    short int val = inputCellValue();
    Coordinates user_coordinates = inputCoordinates();
-   
     
 }
 
