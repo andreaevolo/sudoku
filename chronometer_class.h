@@ -3,10 +3,12 @@
 
 #include <chrono>
 #include <iostream>
-class Chronometer {
+class Chronometer
+{
   std::chrono::time_point<std::chrono::steady_clock> start_;
   std::chrono::time_point<std::chrono::steady_clock> end_;
-  public:
+
+public:
   Chronometer() {}
 
   void startTimer();

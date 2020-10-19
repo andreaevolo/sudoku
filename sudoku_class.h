@@ -4,11 +4,14 @@
 #include "chronometer_class.h"
 #include "coordinates_struct.h"
 
-class Sudoku {
+class Sudoku
+{
     bool game_running_ = true;
     int sudoku_table_[9][9];
-    int player_moves_count_ = 0;
+    short int player_moves_count_ = 0;
+    short int hints_;
     Chronometer timer_;
+    void setLevel();
     // check if the number insert by the user is unique to the column
     bool checkColumn(short int y, short int input_value);
     // check if the number insert by the user is unique to the row
@@ -20,9 +23,11 @@ class Sudoku {
     short int inputCellValue();
     Coordinates inputCoordinates();
     void askUserInput();
-    public:
-    Sudoku(){}
-   
+    void addHintsToTable();
+
+public:
+    Sudoku() {}
+
     bool init();
     void fillSudokuTable();
     void end();

@@ -1,9 +1,13 @@
 #include "sudoku_class.h"
+#include <ctime>
 
-int main() {
+int main()
+{
+    srand(time(0));
     Sudoku match;
     match.fillSudokuTable();
-    while(match.init()) {
+    while (match.init())
+    {
         match.printTable();
         match.end();
     }
