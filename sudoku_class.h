@@ -14,7 +14,7 @@ class Sudoku {
     // check if the number insert by the user is unique to the row
     bool checkRow(short int x, short int input_value);
     // check if the number insert by the user is unique in the 3 x 3 grid
-    bool checkGrid(short int x, short int y);
+    bool checkGrid(short int x, short int y, short int input_value);
 
     // verify both single value and coordinates before insert them in the grid
     short int inputCellValue();
