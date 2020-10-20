@@ -1,5 +1,5 @@
 # sudoku
-Classic 9X9 sudoku console game:
+Classic 9X9 sudoku console based game.
 
 # commands
 1) Insert the number you want to add in the grid ( from 1 to 9 ).
