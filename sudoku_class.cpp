@@ -37,7 +37,6 @@ void Sudoku::addHintsToTable()
             if (checkGrid(i, j, random_value) && (sudoku_table_[i][j] == 0))
             {
                 sudoku_table_[i][j] = random_value;
-                numeriInseriti++;
                 hints_--;
             };
         }
