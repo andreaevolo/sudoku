@@ -39,7 +39,6 @@ void Sudoku::addHintsToTable()
                 sudoku_table_[i][j] = random_value;
                 numeriInseriti++;
                 hints_--;
-                // std::cout << hints_ << "\n";
             };
         }
     }
@@ -50,9 +49,9 @@ void Sudoku::setLevel()
 {
     short int lvl = 1;
     std::cout << "Choose the difficulty of your sudoku" << std::endl;
-    std::cout << "Enter 1 to choose EASY ( 32 Hints ) " << std::endl;
-    std::cout << "Enter 2 to choose MEDIUM ( 24 Hints ) " << std::endl;
-    std::cout << "Enter 3 to choose HARD ( 17 Hints ) " << std::endl;
+    std::cout << "Enter number 1 to choose EASY ( 32 Hints ) " << std::endl;
+    std::cout << "Enter number 2 to choose MEDIUM ( 24 Hints ) " << std::endl;
+    std::cout << "Enter number 3 to choose HARD ( 17 Hints ) " << std::endl;
 
     std::cin >> lvl;
     switch (lvl)
@@ -72,7 +71,6 @@ void Sudoku::setLevel()
 }
 bool Sudoku::init()
 {
-
     if (player_moves_count_ == 0)
     {
         setLevel();
@@ -112,6 +110,8 @@ void Sudoku::printTable()
                 std::cout << sudoku_table_[i][j] << " | ";
             }
         }
+        if (i == 8)
+            std::cout << "\n";
     }
 };
 
@@ -194,7 +194,6 @@ bool Sudoku::checkGrid(short int x, short int y, short int input_value)
                 grid_number = 9;
             }
         }
-
     /*
         start looping through the grid elements and
         checks if the number given by the user is unique.
@@ -308,11 +307,10 @@ void Sudoku::askUserInput()
     }
     if (c && r && g)
     {
-        std::cout << "valid input" << std::endl;
         sudoku_table_[row][column] = val;
     }
     player_moves_count_++;
-    printTable();
+    //printTable();
 }
 
 short int Sudoku::inputCellValue()
@@ -370,7 +368,8 @@ Coordinates Sudoku::inputCoordinates()
         }
     }
     Coordinates sudoku_coordinates;
-    sudoku_coordinates.x_ = row;
-    sudoku_coordinates.y_ = column;
+    // substruct one so the user can enter values from to 1 to 9 in rows and columns
+    sudoku_coordinates.x_ = row - 1;
+    sudoku_coordinates.y_ = column - 1;
     return sudoku_coordinates;
 }

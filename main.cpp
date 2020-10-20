@@ -9,6 +9,6 @@ int main()
     while (match.init())
     {
         match.printTable();
-        match.end();
+        // match.end();
     }
 }
