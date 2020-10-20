@@ -24,6 +24,7 @@ class Sudoku
     short int inputCellValue();
     Coordinates inputCoordinates();
     void askUserInput();
+    // generate starting random ints to be inserted in the table when the game start.
     void addHintsToTable();
 
 public:

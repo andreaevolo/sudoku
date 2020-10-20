@@ -18,8 +18,7 @@ void Sudoku::fillSudokuTable()
 
 void Sudoku::addHintsToTable()
 {
-    short int numeriInseriti = 0;
-    while (hints_ >= 1)
+    while (hints_ >= 0)
     {
         // generate random numbers in range 1 - 9
         short int random_value = (rand() % 9) + 1;
@@ -43,7 +42,6 @@ void Sudoku::addHintsToTable()
             };
         }
     }
-    std::cout << numeriInseriti << std::endl;
 }
 
 void Sudoku::setLevel()
@@ -298,10 +296,10 @@ bool Sudoku::checkGrid(short int x, short int y, short int input_value)
 
 void Sudoku::askUserInput()
 {
-    // if there aren't any empty cell left end the game
-    if (numbers_added_ == 81)
-        return end();
     short int val = inputCellValue();
+    // if there aren't any empty cell left end the game
+    if (numbers_added_ == 81 || val == -1)
+        return end();
     Coordinates user_coordinates = inputCoordinates();
     short int row = user_coordinates.x_;
     short int column = user_coordinates.y_;
@@ -326,6 +324,8 @@ short int Sudoku::inputCellValue()
     std::cout << "Enter a number from 1 to 9" << std::endl;
     short int value;
     std::cin >> value;
+    if (value == -1)
+        return -1;
     bool invalid_value = true;
     while (invalid_value)
     {
