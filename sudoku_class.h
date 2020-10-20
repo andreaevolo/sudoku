@@ -9,6 +9,7 @@ class Sudoku
     bool game_running_ = true;
     int sudoku_table_[9][9];
     short int player_moves_count_ = 0;
+    short int numbers_added_ = 0;
     short int hints_;
     Chronometer timer_;
     void setLevel();

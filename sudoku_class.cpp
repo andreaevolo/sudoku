@@ -13,6 +13,7 @@ void Sudoku::fillSudokuTable()
             sudoku_table_[i][j] = 0;
         }
     }
+    timer_.startTimer();
 }
 
 void Sudoku::addHintsToTable()
@@ -83,6 +84,10 @@ bool Sudoku::init()
 void Sudoku::end()
 {
     game_running_ = false;
+    timer_.stopTimer();
+    std::cout << "You have completed your game in: ";
+    timer_.printTimeElapsed();
+    std::cout << "Total number of mooves needed for you to complete the sudoku: " << numbers_added_ << std::endl;
 }
 
 void Sudoku::printTable()
@@ -293,7 +298,9 @@ bool Sudoku::checkGrid(short int x, short int y, short int input_value)
 
 void Sudoku::askUserInput()
 {
-
+    // if there aren't any empty cell left end the game
+    if (numbers_added_ == 81)
+        return end();
     short int val = inputCellValue();
     Coordinates user_coordinates = inputCoordinates();
     short int row = user_coordinates.x_;
@@ -308,6 +315,7 @@ void Sudoku::askUserInput()
     if (c && r && g)
     {
         sudoku_table_[row][column] = val;
+        numbers_added_++;
     }
     player_moves_count_++;
     //printTable();

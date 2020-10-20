@@ -17,5 +17,5 @@ void Chronometer::printTimeElapsed()
     // print only the first two significant decimal points
     std::cout << std::fixed;
     std::cout << std::setprecision(2);
-    std::cout << diff.count() << " seconds.";
+    std::cout << diff.count() << " seconds." << std::endl;
 }
