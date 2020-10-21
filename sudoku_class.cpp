@@ -76,6 +76,7 @@ bool Sudoku::init()
         printTable();
     }
     askUserInput();
+    player_moves_count_++;
     return game_running_;
 }
 void Sudoku::end()
@@ -122,7 +123,7 @@ bool Sudoku::checkColumn(short int y, short int input_value)
     bool is_valid = true;
     for (int i = 0; i < 9; i++)
     {
-        if (sudoku_table_[i][y] == input_value)
+        if (sudoku_table_[i][y] == input_value && player_moves_count_ > 0)
         {
             is_valid = false;
             std::cout << input_value << " is already present in this column" << std::endl;
@@ -136,7 +137,7 @@ bool Sudoku::checkRow(short int x, short int input_value)
     bool is_valid = true;
     for (int i = 0; i < 9; i++)
     {
-        if (sudoku_table_[x][i] == input_value)
+        if (sudoku_table_[x][i] == input_value && player_moves_count_ > 0)
         {
             is_valid = false;
             std::cout << input_value << " is already present in this row" << std::endl;
@@ -288,7 +289,7 @@ bool Sudoku::checkGrid(short int x, short int y, short int input_value)
     default:
         break;
     }
-    if (!unique_value)
+    if (!unique_value && player_moves_count_ > 0)
         std::cout << input_value << " is already present in this 3x3 block" << std::endl;
     return unique_value;
 };
@@ -314,7 +315,6 @@ void Sudoku::askUserInput()
         sudoku_table_[row][column] = val;
         numbers_added_++;
     }
-    player_moves_count_++;
     //printTable();
 }
 
@@ -353,9 +353,9 @@ Coordinates Sudoku::inputCoordinates()
     {
         try
         {
-            if (row < 1 || row > 9)
+            if ((row < 1 || row > 9) && player_moves_count_ > 0)
                 throw -1;
-            if (row < 1 || column > 9)
+            if ((column < 1 || column > 9) && player_moves_count_ > 0)
                 throw -2;
             invalidCordinates = false;
         }
