@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <iostream>
+#include <iomanip> // for std::setprecision()
 class Chronometer
 {
   std::chrono::time_point<std::chrono::steady_clock> start_;

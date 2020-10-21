@@ -1,5 +1,4 @@
 #include "chronometer_class.h"
-#include <iomanip> // for std::setprecision()
 
 void Chronometer::startTimer()
 {

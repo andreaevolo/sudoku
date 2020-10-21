@@ -1,5 +1,5 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef SUDOKU_CLASS_H_
+#define SUDOKU_CLASS_H_
 
 #include "chronometer_class.h"
 #include "coordinates_struct.h"

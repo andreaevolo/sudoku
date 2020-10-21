@@ -1,6 +1,5 @@
-#include "sudoku_class.h"
 #include <iostream>
-
+#include "sudoku_class.h"
 // private methods
 
 void Sudoku::fillSudokuTable()
