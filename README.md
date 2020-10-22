@@ -11,4 +11,5 @@ Classic 9X9 sudoku console based game.
 
 # info
 
-This project use clang code formatting and [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+This project use clang code formatting and [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+Windows 32 bit application.
