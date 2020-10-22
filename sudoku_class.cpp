@@ -89,7 +89,6 @@ void Sudoku::end()
 
 void Sudoku::printTable()
 {
-
     for (int i = 0; i < 9; i++)
     {
         std::cout << "-------------------------------------"
@@ -125,7 +124,7 @@ bool Sudoku::checkColumn(short int y, short int input_value)
         if (sudoku_table_[i][y] == input_value && player_moves_count_ > 0)
         {
             is_valid = false;
-            std::cout << input_value << " is already present in this column" << std::endl;
+            std::cout << "Number " << input_value << " is already present in this column" << std::endl;
         };
     }
     return is_valid;
@@ -139,7 +138,7 @@ bool Sudoku::checkRow(short int x, short int input_value)
         if (sudoku_table_[x][i] == input_value && player_moves_count_ > 0)
         {
             is_valid = false;
-            std::cout << input_value << " is already present in this row" << std::endl;
+            std::cout << "Number " << input_value << " is already present in this row" << std::endl;
             break;
         };
     }
@@ -289,7 +288,7 @@ bool Sudoku::checkGrid(short int x, short int y, short int input_value)
         break;
     }
     if (!unique_value && player_moves_count_ > 0)
-        std::cout << input_value << " is already present in this 3x3 block" << std::endl;
+        std::cout << "Number " << input_value << " is already present in this 3x3 block" << std::endl;
     return unique_value;
 };
 
@@ -313,7 +312,9 @@ void Sudoku::askUserInput()
     {
         sudoku_table_[row][column] = val;
         numbers_added_++;
-    }
+        system("cls");
+        std::cout << "Updated Sudoku: " << std::endl;
+        }
     //printTable();
 }
 
@@ -335,7 +336,7 @@ short int Sudoku::inputCellValue()
         }
         catch (const char *err)
         {
-            std::cout << err << "\n";
+            std::cerr << err << "\n";
             std::cin >> value;
         }
     }
@@ -344,9 +345,12 @@ short int Sudoku::inputCellValue()
 
 Coordinates Sudoku::inputCoordinates()
 {
-    std::cout << "Enter X (row) and Y (Column) coordinates where you would like to place your number " << std::endl;
+    std::cout << "Enter X and Y coordinates where you would like to place your number " << std::endl;
     short int row, column;
-    std::cin >> row >> column;
+    std::cout << "Enter your X coordinate ( row )" << std::endl;
+    std::cin >> row;
+    std::cout << "Enter your Y coordinate ( column )" << std::endl;
+    std::cin >> column;
     bool invalidCordinates = true;
     while (invalidCordinates)
     {

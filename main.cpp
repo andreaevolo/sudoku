@@ -9,8 +9,8 @@ int main()
 
     while (match.init())
     {
-        std::cout << "Enter -1 to give up." << std::endl;
         match.printTable();
+        std::cout << "Enter -1 to give up." << std::endl;
         // match.end();
     }
 }
